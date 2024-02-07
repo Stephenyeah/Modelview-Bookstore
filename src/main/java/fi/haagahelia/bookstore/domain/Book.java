@@ -1,39 +1,44 @@
 package fi.haagahelia.bookstore.domain;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private long id;
     private String title;
     private String author;
     private int year;
     private long isbn;
     private double price;
 
-    public Book(){
+    public Book() {
         super();
     }
+    public Book(long id,String title, String author, int year, long isbn, double price) {
 
-
-    public Book(String title, long isbn, int price) {
-        this.title = title;
-        this.isbn = isbn;
-        this.price = price;
-    }
-
-
-    public Book(String title,String author){
-        super();
-        this.title = title;
-        this.author =author;
-    }
-
-
-    public Book(String title, String author, int year, long isbn, double price) {
-        super();
+        this.id = id;
         this.title = title;
         this.author = author;
         this.year = year;
         this.isbn = isbn;
         this.price = price;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -78,6 +83,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book [title="+title+", author="+author+", year="+year+", Isbn"+isbn+",price="+price+"]";
+        return "Book [title=" + title + ", author=" + author + ", year=" + year + ", Isbn" + isbn + ",price=" + price
+                + "]";
     }
 }

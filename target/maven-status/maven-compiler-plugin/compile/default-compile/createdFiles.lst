@@ -1,0 +1,4 @@
+fi\haagahelia\bookstore\BookstoreApplication.class
+fi\haagahelia\bookstore\domain\Book.class
+fi\haagahelia\bookstore\web\BookController.class
+fi\haagahelia\bookstore\domain\BookRepository.class
