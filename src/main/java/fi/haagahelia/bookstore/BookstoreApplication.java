@@ -23,7 +23,7 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository repository){
 		return (args) -> {
 			log.info("save a couple of books");
-			repository.save(new Book("The Old Man and the Sea", "Ernest Hemingway", 1952, 978 - 1 - 9075 - 9027 - 6));
+			repository.save(new Book("The Old Man and the Sea", "Ernest Hemingway", 1952, 97819075-9027-6));
 			repository.save(new Book("Romance of the Three Kingdoms", "Luo Guanzhong", 1907, 8951346));
 
 			log.info("fetch all books");
