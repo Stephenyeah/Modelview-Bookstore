@@ -6,39 +6,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-
 @Entity
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String author;
-    private int year;
+
+    private int publicationYear;
     private long isbn;
-    private double price;
 
-    public Book() {
+
+    public Book() {}
+    public Book(String title, String author, int year, long isbn) {
         super();
-    }
-    public Book(long id,String title, String author, int year, long isbn, double price) {
-
         this.id = id;
         this.title = title;
         this.author = author;
-        this.year = year;
+        this.publicationYear = year;
         this.isbn = isbn;
-        this.price = price;
     }
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -50,15 +42,17 @@ public class Book {
     }
 
     public int getYear() {
-        return year;
+        return publicationYear;
     }
 
     public long getIsbn() {
         return isbn;
     }
 
-    public double getPrice() {
-        return price;
+
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
@@ -70,20 +64,17 @@ public class Book {
     }
 
     public void setYear(int year) {
-        this.year = year;
+        this.publicationYear = year;
     }
 
     public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+
 
     @Override
     public String toString() {
-        return "Book [title=" + title + ", author=" + author + ", year=" + year + ", Isbn" + isbn + ",price=" + price
-                + "]";
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + publicationYear + ", isbn" + isbn + "]";
     }
 }
